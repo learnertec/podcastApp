@@ -1,4 +1,3 @@
-
 <div id="banner" class="podcasts_banner">
 	<h1>Discover your new favorite podcast</h1>
 </div>
@@ -9,6 +8,8 @@
 			<% @podcasts.each do |podcast| %>
 				<%= link_to podcast do %>
 					<li>
+						<%= image_tag podcast.thumbnail.url(:medium) %>
+						<div class="podcast_overview">
 							<h2><%= podcast.title %></h2>
 							<p class="episode_count">1 Episode</p>
 						</div>
@@ -17,5 +18,6 @@
 			<% end %>
 		</ul>
 
+		<%= will_paginate @podcasts, previous_label: "Previous", next_label: "Next" %>
 	</div>
 </div>
